@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4d6f5612-dd51-4090-80fc-9b4de8793daf/resourceGroups/RAG-CHATBOT-FINAL/providers/Microsoft.Web/sites/pythondemoapp7453",
+    "appService.deploySubpath": "."
+}
