@@ -1,0 +1,45 @@
+# Byte-code files
+*.pyc
+__pycache__/
+*.pyd
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+/bin/
+/include/
+/lib/
+/share/
+
+# Editor/IDE files
+.idea/  # PyCharm
+.vscode/ # VS Code
+*.sublime-project
+*.sublime-workspace
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# OS generated files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# Specific to Python tools
+# MyPy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
