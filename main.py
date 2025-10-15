@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+import app_insights_logger
+
 app = FastAPI()
 
 @app.get('/')
