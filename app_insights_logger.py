@@ -1,41 +1,24 @@
-# app_insights_logger.py
+# app_insights_logger.py - Assignment: Custom logs and traces to Azure Application Insights
 import logging
-import time
 import os
 
-# Step 1: Configure Azure Monitor connection (reads from env variable)
-def configure_monitoring():
-    """Configure Azure Monitor if connection string is available"""
-    try:
-        # Only configure if connection string is available
-        if os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"):
-            from azure.monitor.opentelemetry import configure_azure_monitor
-            configure_azure_monitor()
-            print("Azure Monitor configured successfully")
-            return True
-        else:
-            print("Azure Monitor not configured - connection string not found")
-            return False
-    except Exception as e:
-        print(f"Failed to configure Azure Monitor: {e}")
-        return False
+# Configure Azure Monitor connection (reads from Application Insights connection string)
+try:
+    if os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"):
+        from azure.monitor.opentelemetry import configure_azure_monitor
+        configure_azure_monitor()
+        print("✅ Azure Application Insights configured successfully")
+    else:
+        print("⚠️ APPLICATIONINSIGHTS_CONNECTION_STRING not found - logging locally only")
+except Exception as e:
+    print(f"❌ Failed to configure Azure Application Insights: {e}")
 
-# Initialize monitoring
-monitoring_enabled = configure_monitoring()
-
-# Step 2: Set up logger
-logger = logging.getLogger("app_insights_custom_logger")
+# Set up custom logger
+logger = logging.getLogger("assignment_logger")
 logger.setLevel(logging.INFO)
 
-# Step 3: Send custom log messages (only if monitoring is enabled)
-if monitoring_enabled:
-    logger.info("🚀 Application Insights custom logging started!")
-    
-    for i in range(5):
-        logger.warning(f"⚠️ Test log {i+1}: Something interesting happened.")
-        time.sleep(1)
-    
-    logger.error("❌ Example error log for testing tracing.")
-    logger.info("✅ Finished sending custom telemetry logs to Application Insights.")
-else:
-    print("Skipping telemetry logs - Azure Monitor not configured")
+# Send custom logs and traces as per assignment
+logger.info("🚀 Assignment: Custom logging to Azure Application Insights started")
+logger.warning("⚠️ Assignment: Custom warning trace for monitoring")
+logger.error("❌ Assignment: Custom error trace for troubleshooting")
+logger.info("✅ Assignment: Custom logs sent to Application Insights successfully")
