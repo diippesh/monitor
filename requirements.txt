@@ -1,18 +1,8 @@
-# Core web framework dependencies
 fastapi==0.115.0
-uvicorn[standard]==0.25.0
+uvicorn==0.25.0
 gunicorn==22.0.0
-
-# Essential dependencies for Python 3.13 compatibility
 pydantic==2.9.2
 typing-extensions==4.12.2
 setuptools==75.1.0
-
-# Azure monitoring (optional - can be commented out if causing issues)
-azure-monitor-opentelemetry==1.6.0
-
-# Additional utilities
 requests==2.32.3
-
-# Compatibility packages for Python 3.13
 wheel==0.44.0
